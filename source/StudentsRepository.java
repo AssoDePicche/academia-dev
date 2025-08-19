@@ -4,4 +4,8 @@ import java.util.Set;
 
 public interface StudentsRepository {
   Set<Student> query();
+
+  Set<Student> query(SubscriptionPlan subscriptionPlan);
+
+  void save(Student student);
 }
