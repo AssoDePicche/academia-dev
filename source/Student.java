@@ -18,7 +18,13 @@ public final class Student extends User {
     return enrollments;
   }
 
-  public void enroll(Course course) throws MaxOngoingCoursesException {
+  public void enroll(Course course)
+      throws InactiveCourseEnrollmentException, MaxOngoingCoursesException {
+    if (course.getStatus() == CourseStatus.INACTIVE) {
+      throw new InactiveCourseEnrollmentException(
+          "Não é possível efetuar a matrícula em um curso inativo");
+    }
+
     if (constraint.isEligible(this)) {
       enrollments.add(new Enrollment(this, course));
     }
