@@ -5,7 +5,7 @@ public final class Email {
 
   private String address;
 
-  public Email(String address) {
+  public Email(String address) throws IllegalArgumentException {
     if (!Pattern.compile(PATTERN).matcher(address).matches()) {
       throw new IllegalArgumentException("E-mail inválido");
     }
