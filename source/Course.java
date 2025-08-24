@@ -9,6 +9,7 @@ public final class Course {
   private Duration duration;
   private DifficultyLevel difficultyLevel;
   private CourseStatus status;
+  private Set<Enrollment> enrollments = new HashSet<>();
 
   public String getTitle() {
     return title;
@@ -60,5 +61,16 @@ public final class Course {
 
   public void setStatus(CourseStatus status) {
     this.status = status;
+  }
+
+  public Set<Enrollment> getEnrollments() {
+    return enrollments;
+  }
+
+  public void enroll(Student student)
+      throws InactiveCourseEnrollmentException, MaxOngoingCoursesException {
+    enrollments.add(new Enrollment(student, this));
+
+    student.enroll(this);
   }
 }
