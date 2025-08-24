@@ -4,7 +4,7 @@ import java.util.Set;
 public final class Course {
   private String title;
   private String description;
-  private String instructorName;
+  private Instructor instructor;
   private double durationInHours;
   private DifficultyLevel difficultyLevel;
   private CourseStatus status;
@@ -25,12 +25,12 @@ public final class Course {
     this.description = description;
   }
 
-  public String getInstructorName() {
-    return instructorName;
+  public Instructor getInstructor() {
+    return instructor;
   }
 
-  public void setInstructorName(String instructorName) {
-    this.instructorName = instructorName;
+  public void setInstructor(Instructor instructor) {
+    this.instructor = instructor;
   }
 
   public double getDurationInHours() {
