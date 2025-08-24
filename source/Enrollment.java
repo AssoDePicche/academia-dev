@@ -1,7 +1,7 @@
 public final class Enrollment {
   private Student student;
   private Course course;
-  private double progress = 0.0f;
+  private Progress progress = new Progress();
 
   public Enrollment(Student student, Course course) {
     this.student = student;
@@ -25,15 +25,7 @@ public final class Enrollment {
     this.course = course;
   }
 
-  public double getProgress() {
+  public Progress getProgress() {
     return progress;
-  }
-
-  public void setProgress(double progress) {
-    if (progress < 0 || progress > 100) {
-      throw new IllegalArgumentException("O progresso do curso deve estar entre 0% e 100%");
-    }
-
-    this.progress = progress;
   }
 }
