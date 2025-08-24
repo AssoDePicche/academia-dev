@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -5,7 +6,7 @@ public final class Course {
   private String title;
   private String description;
   private Instructor instructor;
-  private double durationInHours;
+  private Duration duration;
   private DifficultyLevel difficultyLevel;
   private CourseStatus status;
 
@@ -33,16 +34,16 @@ public final class Course {
     this.instructor = instructor;
   }
 
-  public double getDurationInHours() {
-    return durationInHours;
+  public Duration getDuration() {
+    return duration;
   }
 
-  public void setDurationInHours(double durationInHours) throws IllegalArgumentException {
-    if (durationInHours <= 0) {
+  public void setDuration(long hours) throws IllegalArgumentException {
+    if (hours <= 0) {
       throw new IllegalArgumentException("Carga horária inválida");
     }
 
-    this.durationInHours = durationInHours;
+    duration = Duration.ofHours(hours);
   }
 
   public DifficultyLevel getDifficultyLevel() {
