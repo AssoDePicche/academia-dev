@@ -6,6 +6,8 @@ public interface CoursesRepository {
 
   Set<Course> query(DifficultyLevel difficultyLevel);
 
+  Set<Course> query(Instructor instructor);
+
   Optional<Course> query(String title);
 
   void save(Course course);

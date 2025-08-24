@@ -20,6 +20,14 @@ public final class InMemoryCoursesRepository implements CoursesRepository {
   }
 
   @Override
+  public Set<Course> query(Instructor instructor) {
+    return query()
+        .stream()
+        .filter(course -> course.getInstructor().getName().equals(instructor.getName()))
+        .collect(Collectors.toSet());
+  }
+
+  @Override
   public Optional<Course> query(String title) {
     for (var course : buffer) {
       if (course.getTitle().equals(title)) {
